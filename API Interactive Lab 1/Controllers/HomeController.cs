@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using API_Interactive_Lab_1.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API_Interactive_Lab_1.Controllers
 {

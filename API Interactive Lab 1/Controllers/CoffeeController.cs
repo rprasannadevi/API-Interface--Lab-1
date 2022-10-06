@@ -8,7 +8,7 @@ namespace API_Interactive_Lab_1.Controllers
     public class CoffeeController : ControllerBase
     {
         [HttpGet("{name}")]
-        public Coffee Get(string? name)
+        public Coffee Get(string name)
         {
             var coffee = new Coffee();
             if (name != null)
@@ -25,7 +25,7 @@ namespace API_Interactive_Lab_1.Controllers
         }
 
         [HttpGet("lover")]
-        public string Get()
+        public string GetCoffeeLover()
         {
             return "I like coffee!";
         }

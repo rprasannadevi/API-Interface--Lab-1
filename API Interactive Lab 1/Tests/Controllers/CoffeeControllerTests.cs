@@ -1,24 +1,42 @@
 ﻿using API_Interactive_Lab_1.Controllers;
+using API_Interactive_Lab_1.Models;
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace API_Interactive_Lab_1.Tests.Controllers
 {
     public class CoffeeControllerTests
     {
-        // this attribute tells NUnit to run this method as a test
-        [Test]
-        public void TestGetHome()
+        private CoffeeController _controller;
+
+        [SetUp]
+        public void Setup()
         {
-            string expectedContent = "I like coffee!";
-
-            // ARRANGE - we set up everything needed for our test string expectedContent = "Welcome to the Drinks API!"; 
-            var controller = new CoffeeController();
-
-            // ACT - we perform the test
-            var result = controller.Get();
-
-            // ASSERT - we compare the result to the expected result 
-            Assert.AreEqual(expectedContent, result);
+            _controller = new CoffeeController();
         }
+
+        [Test]
+        public void Test_Get_CoffeeLover()
+        {
+            _controller.GetCoffeeLover().Should().Be("I like coffee!");
+        }
+
+
+        [Test]
+        public void Test_Get_Coffee_No_Params()
+        {
+            var result = _controller.Get(null);
+            result.Name.Should().Be("latte");
+            result.Id.Should().Be(-1);
+        }
+
+        [Test]
+        public void Test_Get_Coffee_By_Name()
+        {
+            var result = _controller.Get("cappuccino");
+            result.Name.Should().Be("cappuccino");
+            result.Id.Should().Be(7);
+         }
     }
 }
+

@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "API_Interactive_Lab_1": {
+    "Drinks Web API": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
